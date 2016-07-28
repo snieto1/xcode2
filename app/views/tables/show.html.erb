@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Table name:</strong>
+  <%= @table.table_name %>
+</p>
+
+<p>
+  <strong>Minimum:</strong>
+  <%= @table.minimum %>
+</p>
+
+<%= link_to 'Edit', edit_table_path(@table) %> |
+<%= link_to 'Back', tables_path %>

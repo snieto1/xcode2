@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Club name:</strong>
+  <%= @club.club_name %>
+</p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @club.contact_person %>
+</p>
+
+<p>
+  <strong>Club phone number:</strong>
+  <%= @club.club_phone_number %>
+</p>
+
+<p>
+  <strong>Club email:</strong>
+  <%= @club.club_email %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @club.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_club_path(@club) %> |
+<%= link_to 'Back', clubs_path %>
