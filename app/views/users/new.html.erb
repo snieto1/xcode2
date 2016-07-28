@@ -1,5 +1,18 @@
-<h1>New User</h1>
+<h1>User Login</h1>
+
+<%= form_tag '/login' do %>
+
+  Email: <%= text_field_tag :email %><br>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+<% end %>
+
+<br>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+<!-- need to change to root -->
+<%= link_to 'Back', new_user_path %>
+
+<%= link_to 'Club', new_club_path %>
