@@ -30,11 +30,12 @@ class UsersController < ApplicationController
     # respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        redirect_to clubs_path
+        redirect_to sessions_create_path
         # format.html { redirect_to @user, notice: 'User was successfully created.' }
         # format.json { render :show, status: :created, location: @user }
       else
         redirect_to '/signup'
+        # notice: "invalid credentials"
         # format.html { render :new }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -73,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :age, :phone_number, :email, :password_digest)
+      params.require(:user).permit(:first_name, :last_name, :age, :phone_number, :email, :password)
     end
 end

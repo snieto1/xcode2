@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def check
-    if @current_user
+    if current_user
       redirect_to clubs_path
     else
       redirect_to new_user_path
@@ -19,10 +19,11 @@ class SessionsController < ApplicationController
         # Save the user id inside the browser cookie. This is how we keep the user
         # logged in when they navigate around our website.
         session[:user_id] = @user.id
-        redirect_to '/'
+        render 'clubs/index'
       else
       # If user's login doesn't work, send them back to the login form.
         redirect_to '/login'
+        # notice: "invalid credentials"
       end
   end
 

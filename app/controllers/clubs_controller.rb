@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_club, except: [:new, :create]
-  before_action :authorize_user_or_club, only: [:show]
+  before_action :authorize_club, except: [:new, :create, :show, :index]
+  before_action :authorize_user_or_club, only: [:show, :index]
     # GET /clubs
   # GET /clubs.json
   def index
@@ -70,12 +70,10 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:club_name, :contact_person, :club_phone_number, :club_email, :password_digest)
+      params.require(:club).permit(:club_name, :contact_person, :club_phone_number, :club_email, :password)
     end
 
     def authorize_user_or_club
-      if current_user || current_club
-        redirect_to clubs_path
-      end
+      current_user || current_club  
     end
 end
