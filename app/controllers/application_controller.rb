@@ -7,6 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to '/login' unless current_user
+    redirect_to '/login' unless @current_user
+  end
+
+  #######------------ Club ----------###########
+
+  def current_club
+    @current_club ||= Club.find(session[:club_id]) if session[:club_id]
+  end
+  helper_method :current_club
+
+  def authorize_club
+    redirect_to '/login' unless current_club
   end
 end
