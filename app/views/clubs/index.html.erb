@@ -21,7 +21,6 @@
         <td><%= club.contact_person %></td>
         <td><%= club.club_phone_number %></td>
         <td><%= club.club_email %></td>
-        <td><%= club.password_digest %></td>
         <td><%= link_to 'Show', club %></td>
         <td><%= link_to 'Edit', edit_club_path(club) %></td>
         <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +30,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Club', new_club_path %>

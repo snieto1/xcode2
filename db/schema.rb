@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728211907) do
+ActiveRecord::Schema.define(version: 20160730195741) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "club_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160728211907) do
     t.string   "password_digest"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "tables_id"
+    t.index ["tables_id"], name: "index_clubs_on_tables_id"
   end
 
   create_table "tables", force: :cascade do |t|

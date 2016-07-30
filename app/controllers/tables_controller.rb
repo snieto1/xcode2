@@ -24,17 +24,20 @@ class TablesController < ApplicationController
   # POST /tables
   # POST /tables.json
   def create
-    @table = Table.new(table_params)
-
-    respond_to do |format|
-      if @table.save
-        format.html { redirect_to @table, notice: 'Table was successfully created.' }
-        format.json { render :show, status: :created, location: @table }
-      else
-        format.html { render :new }
-        format.json { render json: @table.errors, status: :unprocessable_entity }
-      end
-    end
+    @club = Club.find(params[:club_id])
+    @table = @club.tables.create(table_params)
+    redirect_to club_path(@club)
+    # @comment = @article.comments.create(comment_params)
+    #
+    # respond_to do |format|
+    #   if @table.save
+    #     format.html { redirect_to @table, notice: 'Table was successfully created.' }
+    #     format.json { render :show, status: :created, location: @table }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @table.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /tables/1
