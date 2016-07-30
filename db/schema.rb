@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20160730195741) do
     t.string   "password_digest"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "tables_id"
-    t.index ["tables_id"], name: "index_clubs_on_tables_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -29,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160730195741) do
     t.string   "minimum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "clubs_id"
+    t.index ["clubs_id"], name: "index_tables_on_clubs_id"
   end
 
   create_table "users", force: :cascade do |t|

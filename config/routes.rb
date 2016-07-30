@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :tables
-  resources :clubs
   resources :users
+  resources :clubs do
+    resources :tables
+  end
 
   root 'sessions#check'
 
   get 'sessions/create'
   get 'sessions/destroy'
-
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'users#new'
   post '/login' => 'sessions#create'

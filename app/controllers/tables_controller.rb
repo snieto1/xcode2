@@ -14,7 +14,8 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @club = Club.find(params[:club_id])
+    @table = @club.tables.create
   end
 
   # GET /tables/1/edit
