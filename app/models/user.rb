@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Email is downcase to make it comparable
-  before_save { self.email = email.downcase}
+  # Email is downcase to make it comparable, first name/last name becomes capitalized
+  before_save { self.email = email.downcase }
 
   # Makes sure a name is put in and is under 50 chars
   validates :first_name, presence: true, length: {maximum: 25}
