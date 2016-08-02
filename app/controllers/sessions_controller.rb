@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/users/new'
+    redirect_to root_path
   end
 
   #######------------- Club -------------##############
