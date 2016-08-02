@@ -61,7 +61,7 @@ window.isRetina = ((window.matchMedia && (window.matchMedia('only screen and (mi
 if (window.isRetina){$html.addClass('retina');}
 
 //On DOM ready
-$(document).on("ready turbolinks:load", function() { "use strict";
+$(document).on("turbolinks:load", function() { "use strict";
   var $body = $('body');
 
   //add window a trigger
@@ -765,7 +765,7 @@ Scrolling pages
           compact = element,
           forceMobileView = $(panel).hasClass('forceMobileView');
 
-      $(window).on('load resize ready page:load',function(){
+      $(window).on('load resize ready ',function(){
 
         var documentWidth = $(document).width(),
             panelsPadding = parseInt($(panel).css('padding-left').replace('px','')) + parseInt($(panel).css('padding-right').replace('px',''));
@@ -963,7 +963,7 @@ Scrolling pages
 
     if (!$('.side').hasClass('compact')){
       //Collapse sidemenu to compact
-      $(window).on('load resize ready page:load',function(){
+      $(window).on('load resize ready ',function(){
         var containerWidth = $(window).height() - $(window).width()*0.1112 - 100,
             container = $('.side').removeClass('compact').find('ul'),
             totalWidth = 0;
@@ -1217,7 +1217,7 @@ Scrolling pages
 
        Grid Element Equalizer    */
 
-  $(window).on('resize load ready page:load',function(){
+  $(window).on('resize load ready ',function(){
     equalizeELements();
   });
 
@@ -1376,7 +1376,7 @@ Scrolling pages
 
   //Auto Height
   $('[data-slider-id].autoHeight').each(function(index, element) {
-		$(window).on('click resize load ready page:load',function(){
+		$(window).on('click resize load ready ',function(){
       var totalHeight = 0;
 
       $(element).find('.selected').children().each(function(){
