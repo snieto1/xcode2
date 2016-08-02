@@ -61,7 +61,7 @@ window.isRetina = ((window.matchMedia && (window.matchMedia('only screen and (mi
 if (window.isRetina){$html.addClass('retina');}
 
 //On DOM ready
-$(document).ready(function() { "use strict";
+$(document).on("ready page:load", function() { "use strict";
   var $body = $('body');
 
   //add window a trigger
@@ -1036,7 +1036,7 @@ Scrolling pages
   /*
 
        Sidebar Toggle
-                  
+
   */
 
   $('.sidebarTrigger[data-sidebar-id]').on('click', function(){
