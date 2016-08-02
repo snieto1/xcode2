@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Club name:</strong>
   <%= @club.club_name %>
@@ -20,6 +19,11 @@
   <%= @club.club_email %>
 </p>
 
+<ul>
+<% @club.tables.each do |table| %>
+    <li><%= link_to "Reserve Table #{table.table_name}", table_reservations_path(table), method: :post %>
+<% end %>
+</ul>
 
-<%= link_to 'Add Table', new_club_table_path %>
+<%= link_to 'Add Table', new_club_table_path(@club) %>
 <%= link_to 'Edit', edit_club_path %>

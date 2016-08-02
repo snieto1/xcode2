@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730195741) do
+ActiveRecord::Schema.define(version: 20160802205641) do
+
+  create_table "bottles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_bottles_on_club_id"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.string   "club_name"
@@ -22,13 +31,31 @@ ActiveRecord::Schema.define(version: 20160730195741) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "reservation_bottles", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "bottle_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["bottle_id"], name: "index_reservation_bottles_on_bottle_id"
+    t.index ["reservation_id"], name: "index_reservation_bottles_on_reservation_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "table_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_reservations_on_table_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "tables", force: :cascade do |t|
     t.string   "table_name"
     t.string   "minimum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "clubs_id"
-    t.index ["clubs_id"], name: "index_tables_on_clubs_id"
+    t.integer  "club_id"
+    t.index ["club_id"], name: "index_tables_on_club_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -15,7 +15,8 @@ class TablesController < ApplicationController
   # GET /tables/new
   def new
     @club = Club.find(params[:club_id])
-    @table = @club.tables.create
+    @table = Table.new
+    # @table = @club.tables.create
   end
 
   # GET /tables/1/edit
@@ -26,7 +27,7 @@ class TablesController < ApplicationController
   # POST /tables.json
   def create
     @club = Club.find(params[:club_id])
-    @table = @club.tables.create(table_params)
+    @table = @club.tables.create!(table_params)
     redirect_to club_path(@club)
     # @comment = @article.comments.create(comment_params)
     #

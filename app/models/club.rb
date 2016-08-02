@@ -1,5 +1,6 @@
 class Club < ApplicationRecord
   has_many :tables
+  has_many :bottles
 
   before_save { self.club_email = club_email.downcase }
 

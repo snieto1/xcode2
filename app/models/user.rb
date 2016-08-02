@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :reservation
   # Email is downcase to make it comparable, first name/last name becomes capitalized
   before_save { self.email = email.downcase }
 

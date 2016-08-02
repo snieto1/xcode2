@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+  resources :bottles
   resources :users
   resources :clubs do
     resources :tables
+  end
+
+  resources :reservations do
+    resources :reservation_bottles
+  end
+
+  post '/reservation_bottles/:bottle_id' => 'reservation_bottles#create'
+
+  resources :tables do
+    resources :reservations
   end
 
   root 'sessions#check'

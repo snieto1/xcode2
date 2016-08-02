@@ -1,0 +1,11 @@
+<h1>Current Bottles</h1>
+<% @table.reservation.bottles.each do |bottle| %>
+  <%= "You have #{bottle.name}" %><br>
+<% end %>
+<h1>Add Bottles</h1>
+<ul>
+<% @table.club.bottles.each do |bottle| %>
+  <li><%= bottle.name %> $<%= bottle.price %>
+    <%= link_to 'Add Bottle to Reservation', "/reservation_bottles/#{bottle.id}", method: :post %>
+<% end %>
+</ul>
