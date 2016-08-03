@@ -25,10 +25,11 @@
           <div class="ae-2">
             <p class="hero">Do it the right way. Do it the <span style="color:red">EasyNight</span> way.</p>
           </div>
-          <a class="button round uppercase pink ae-3">Book your table</a>
+          <a class="button round uppercase pink ae-3 nextSlide">Book your table</a>
           <div class="button play white small popupTrigger toCenter ae-6 fromCenter block play-21" data-popup-id="21-0">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#play"></use></svg>
           </div>
+          <h2 class="ae-2">Press play to feel the Love</h2>
         </div>
 
       </div>
@@ -56,7 +57,7 @@
 </div>
 
 <!-- Slide #2 -->
-<section class="slide fade kenBurns">
+<section class="slide fade kenBurns" id="slide-2">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -68,13 +69,92 @@
               <div class="stroke round wide ae-4" id="email43"><%= text_field_tag :email %></div>
               <label class="uppercase ae-5" for="password37">Password: </label>
               <div class="stroke round wide ae-6" id="password43"><%= password_field_tag :password %></div>
-              <div class="button wide pink round uppercase ae-8"><%= submit_tag "Submit" %></div>
+              <div><%= submit_tag "Log In", class: "button wide pink round uppercase ae-9" %></div>
               <% end %>
             </div>
           </div>
+        <h1 class="small ae-1">Create Account</h1>
+        <div class="fix-5-12 box-42">
+          <div class="pad shadow selected ae-3">
+            <%= form_for(@user) do |f| %>
+              <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                  <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.label :first_name, nil, class: "uppercase ae-3", for: "email37" %>
+                <%= f.text_field :first_name, class: "stroke round wide ae-4", id: "email43", placeholder: 'First Name' %>
+              </div>
+
+              <div class="field">
+                <%= f.label :last_name, nil, class: "uppercase ae-3", for: "email37" %>
+                <%= f.text_field :last_name, class: "stroke round wide ae-4", id: "email43", placeholder: 'Last Name' %>
+              </div>
+
+              <div class="field">
+                <%= f.label :age, nil, class: "uppercase ae-3", for: "email37" %>
+                <%= f.number_field :age, class: "stroke round wide ae-4", id: "email43" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :phone_number, nil, class: "uppercase ae-3", for: "email37" %>
+                <%= f.text_field :phone_number, class: "stroke round wide ae-4", id: "email43", placeholder: "555-555-5555" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :email, nil, class: "uppercase ae-3", for: "email37" %>
+                <%= f.text_field :email, class: "stroke round wide ae-4", id: "email43", placeholder: "Email" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password, nil, class: "uppercase ae-5", for: "password37" %>
+                <%= f.password_field :password, class: "stroke round wide ae-6", id: "password43", placeholder: "Password" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation, nil, class: "uppercase ae-5", for: "password37" %>
+                <%= f.password_field :password_confirmation, class: "stroke round wide ae-6", id: "password43", placeholder: "Password Confirmation" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Create Account", class: "button wide pink round uppercase ae-9" %>
+              </div>
+            <% end %>
+            <!-- <form action="/users" autocomplete="off" class="wide center" accept-charset="UTF-8" method="post"> -->
+              <!-- <label class="uppercase ae-3" for="email37">Email Address</label>
+              <input class="stroke round wide ae-4" id="email43" type="email" name="email" placeholder="Email" required/>
+              <label class="uppercase ae-3" for="email37">First Name</label>
+              <input class="stroke round wide ae-4" id="email43" type="first_name" name="first_name" placeholder="First Name" required/>
+              <label class="uppercase ae-3" for="email37">Last Name</label>
+              <input class="stroke round wide ae-4" id="email43" type="last_name" name="last_name" placeholder="Last Name" required/>
+              <label class="uppercase ae-5" for="password37">Create Password</label>
+              <input class="stroke round wide ae-6" id="password43" type="password" name="password" placeholder="Password" required/>
+              <small class="block ae-8">
+                <span class="text-42">By clicking Create Account, I agree to the <a href="#"><b>Terms&nbsp;of&nbsp;Service</b></a> and <a href="#"><b>Privacy&nbsp;Policy</b></a>.</span>
+              </small>
+              <input class="button wide pink round uppercase ae-9" type="submit" name="submit" value="Create Account"/> -->
+            <!-- </form> -->
+          </div>
+          <small class="block ae-10 block-42">
+            <span class="text-42">Are you a Nightclub?<a href="#" class="block bold">Sign In</a></span>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="background" style="background-image:url(<%#= image_url('img-2.jpg') %>)"></div> -->
+<!-- </section> -->
 
           <!-- RAFA, THIS HAS NO CSS ON IT -->
-          <%= render 'form', user: @user %>
+          <%#= render 'form', user: @user %>
           <h2><%= link_to 'Club', new_club_path %> </h2>
           <!-- RAFA, THIS HAS NO CSS ON IT -->
 
@@ -205,7 +285,7 @@
       <div class="wrap">
 
         <div class="fix-10-12 toCenter">
-          <h1 class="small ae-1">Our sponsors worldwide</h1>
+          <h1 class="small ae-1">Brands you love in our Nightclubs</h1>
           <div class="ae-2"><p>Think of us for your next party and make your night an <span style="color:red">EasyNight</span>.</p></div>
         </div>
         <div class="fix-12-12">
