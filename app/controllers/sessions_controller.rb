@@ -48,18 +48,18 @@ class SessionsController < ApplicationController
 
 
   def create_club
-    @club = Club.find_by club_email: params[:club_email]
-      # If the club exists AND the password entered is correct.
-      if @club && @club.authenticate(params[:password])
-        # Save the club id inside the browser cookie. This is how we keep the club
-        # logged in when they navigate around our website.
-        session[:club_id] = @club.id
-        redirect_to club_path(@club) #check this works
-      else
-      # If club's login doesn't work, send them back to the login form.
-        redirect_to clubs_path, notice: 'Else Statements'
-      end
-  end
+   @club = Club.find_by club_email: params[:club_email]
+     # If the club exists AND the password entered is correct.
+     if @club && @club.authenticate(params[:password])
+       # Save the club id inside the browser cookie. This is how we keep the club
+       # logged in when they navigate around our website.
+       session[:club_id] = @club.id
+       redirect_to club_path(@club) #check this works
+     else
+     # If club's login doesn't work, send them back to the login form.
+       redirect_to clubs_path, notice: 'Else Statements'
+     end
+ end
 
   def destroy_club
     session[:club_id] = nil
