@@ -5,7 +5,6 @@ class User < ApplicationRecord
 
   # Makes sure a name is put in and is under 50 chars
   validates :first_name, presence: true, length: {maximum: 25}
-
   validates :last_name, presence: true, length: {maximum: 25}
 
   # Makes sure email is actually an email format
