@@ -84,7 +84,7 @@
     <% if current_user %>
       Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
     <% elsif current_club %>
-      Signed in as <%= current_club.name %> | <%= link_to "Logout", '/logout_club' %>
+      Signed in as <%= current_club.club_name %> | <%= link_to "Logout", '/logout_club' %>
 
     <% end %>
 
