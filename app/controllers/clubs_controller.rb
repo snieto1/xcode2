@@ -27,16 +27,18 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
 
-    respond_to do |format|
-      if @club.save
-        format.html { redirect_to @club, notice: 'Club was successfully created.' }
-        format.json { render :show, status: :created, location: @club }
-      else
-        format.html { render :new }
-        format.json { render json: @club.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    if @club.save
+      # format.html { redirect_to @club, notice: 'Club was successfully created.' }
+      # format.json { render :show, status: :created, location: @club }
+    else
+      redirect_to '/signup'
+      flash[:notice] = "Club#create else statement"
+      # format.html { render :new }
+      # format.json { render json: @club.errors, status: :unprocessable_entity }
     end
   end
+
 
   # PATCH/PUT /clubs/1
   # PATCH/PUT /clubs/1.json
@@ -74,6 +76,6 @@ class ClubsController < ApplicationController
     end
 
     def authorize_user_or_club
-      current_user || current_club  
+      current_user || current_club
     end
 end
