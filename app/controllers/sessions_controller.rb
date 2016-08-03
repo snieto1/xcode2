@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  # This is broken- Can't figure out why
+
   def create_club
     @club = Club.find_by club_email: params[:club_email]
       # If the club exists AND the password entered is correct.
