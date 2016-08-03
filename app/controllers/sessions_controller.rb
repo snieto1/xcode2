@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to '/login'
   end
 
   #######------------- Club -------------##############
@@ -46,8 +46,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  # This is broken- Can't figure out why
   def create_club
-    @club = Club.find_by_email(params[:email])
+    @club = Club.find_by(club_email: params[:email])
       # If the club exists AND the password entered is correct.
       if @club && @club.authenticate(params[:password])
         # Save the club id inside the browser cookie. This is how we keep the club
@@ -56,7 +57,7 @@ class SessionsController < ApplicationController
         redirect_to club_path #check this works
       else
       # If club's login doesn't work, send them back to the login form.
-        redirect_to '/login'
+        redirect_to club_path
       end
   end
 

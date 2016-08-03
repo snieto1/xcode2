@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20160802205641) do
     t.string   "minimum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "club_id"
-    t.index ["club_id"], name: "index_tables_on_club_id"
+    t.integer  "clubs_id"
+    t.index ["clubs_id"], name: "index_tables_on_clubs_id"
   end
 
   create_table "users", force: :cascade do |t|
