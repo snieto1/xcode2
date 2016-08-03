@@ -4,6 +4,11 @@ Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 */
 
+#sign-in-slide {
+  z-index: -1;
+  background-image: url('/assets/img-2.jpg');
+}
+
 .raleway {
   font-family:"Raleway", sans-serif !important;
 }
@@ -897,6 +902,8 @@ form input[type="name"],
 form input[type="email"],
 form input[type="password"],
 form input[type="tel"],
+form input[type="first_name"],
+form input[type="last_name"],
 form textarea {
   background:#fff;
   padding:13px 19px 14px;
