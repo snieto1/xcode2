@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   resources :bottles
   resources :users
+
   resources :clubs do
     resources :tables
   end
 
-  resources :reservations do
-    resources :reservation_bottles
-  end
-
-  post '/reservation_bottles/:bottle_id' => 'reservation_bottles#create'
-
   resources :tables do
     resources :reservations
+  end
+    
+  resources :reservations do
+    resources :reservation_bottles
   end
 
   root 'sessions#check'
@@ -31,6 +30,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   post '/clubs' => 'clubs#create'
+
+  post '/reservation_bottles/:bottle_id' => 'reservation_bottles#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

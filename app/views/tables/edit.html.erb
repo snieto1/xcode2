@@ -1,6 +1,6 @@
-<h1>Editing Table</h1>
+<h1>Edit Table Minimum</h1>
 
 <%= render 'form', table: @table %>
 
-<%= link_to 'Show', @table %> |
-<%= link_to 'Back', tables_path %>
+<% @club = Club.find(params[:club_id]) %>
+<%= link_to 'Back', club_path(@club) %>
