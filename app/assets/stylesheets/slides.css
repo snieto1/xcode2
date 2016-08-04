@@ -3,6 +3,24 @@
 Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 */
+.field.signup {
+  margin-right: 70px;
+}
+
+.signupBox {
+  width: 700px;
+  margin-left: -131px;
+}
+
+.macarena {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.block.bold {
+  color: white;
+}
 
 #sign-in-slide {
   z-index: -1;
@@ -2528,7 +2546,7 @@ html:not(.page-loaded) .slides.scroll .slide {
 .slides .dropdown h3 {
   font-family:'Source Sans Pro', sans-serif;
   font-size:17px;
-  padding:15px 0;
+  padding-right:15px 0;
   font-weight:500;
   margin:0;
   text-align:center;
