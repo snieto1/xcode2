@@ -21,6 +21,7 @@ class TablesController < ApplicationController
 
   # GET /tables/1/edit
   def edit
+    @club = Club.find(params[:club_id])
   end
 
   # POST /tables
@@ -45,7 +46,7 @@ class TablesController < ApplicationController
   # PATCH/PUT /tables/1
   # PATCH/PUT /tables/1.json
   def update
-    @club = Club.find_by(params[:club_id])
+    @club = Club.find(params[:club_id])
     respond_to do |format|
       if @table.update(table_params)
         format.html { redirect_to club_path(@club), notice: 'Table was successfully updated.' }
