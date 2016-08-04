@@ -18,20 +18,20 @@
 
 <nav class="panel top forceMobileView">
   <div class="sections desktop">
-    <div class="left"><a href="#"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="left"><a href="<%= new_user_path %>" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
     <div class="right">
       <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#">Create Account</a></li>
-        <li><a href="#">Nightclubs</a></li>
-        <li><a href="#">Brands</a></li>
+        <li><a href="#" class="toSlide-2">Sign In</a></li>
+        <li><a href="#" class="toSlide-3">Create Account</a></li>
+        <li><a href="#" class="toSlide-4">Nightclubs</a></li>
+        <li><a href="#" class="toSlide-5">Brands</a></li>
+        <li><a href="#" class="toSlide-6">Contact Us</a></li>
       </ul>
-      <a class="button menuButton" href="#">Contact Us</a>
+      <!-- <a class="button menuButton" href="#">Contact Us</a> -->
     </div>
   </div>
   <div class="sections compact hidden">
-    <div class="left"><a href="#"><svg style="width:20px;height:31px"><%= image_tag 'apple.png', width: 20, alt: 'Apple' %></svg></a></div>
+    <div class="left"><a href="#" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
     <div class="right">
       <span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span>
     </div>
@@ -99,7 +99,7 @@
           </div>
               <small class="block ae-10 block-43">
                 <span class="text-43">
-                  Don&rsquo;t have an account?<a href="#" class="block bold nextSlide">Create One</a>
+                  Don&rsquo;t have an account?<a href="#" class="block bold toSlide-3">Create One</a>
                 </span>
               </small>
           </div>

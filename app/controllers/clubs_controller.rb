@@ -31,11 +31,13 @@ class ClubsController < ApplicationController
     if @club.save
       # format.html { redirect_to @club, notice: 'Club was successfully created.' }
       # format.json { render :show, status: :created, location: @club }
+      redirect_to @club, notice: 'Club was successfully created.'
     else
-      redirect_to '/signup'
-      flash[:notice] = "Club#create else statement"
+      # redirect_to '/signup'
+      # flash[:notice] = "Club#create else statement"
       # format.html { render :new }
       # format.json { render json: @club.errors, status: :unprocessable_entity }
+      render :new
     end
   end
 

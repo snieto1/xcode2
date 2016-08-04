@@ -1,4 +1,4 @@
-<h1>Club Login</h1>
+<!-- <h1>Club Login</h1>
 
 <%= form_tag '/login_club' do %>
 
@@ -11,6 +11,166 @@
 <br>
 
 <%= render 'form', club: @club %>
-<br>
-<br>
-<h2><%= link_to 'I am a User', new_user_path %></h2>
+
+<h2><%= link_to 'I am a User', new_user_path %></h2> -->
+<nav class="side left">
+  <div class="navigation">
+    <div class="cell">
+      <span class="prevSlide"><svg class="sideArrow"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left"></use></svg></span>
+    </div>
+  </div>
+</nav>
+
+<nav class="side">
+  <div class="navigation">
+    <div class="cell">
+      <span class="nextSlide"><svg class="sideArrow"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use></svg></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Panel top  -->
+
+<nav class="panel top forceMobileView">
+  <div class="sections desktop">
+    <div class="left"><a href="<%= new_user_path %>" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="right">
+      <ul class="menu">
+        <li><a href="#" class="toSlide-1">Sign In</a></li>
+        <li><a href="#" class="toSlide-2">Create Account</a></li>
+      </ul>
+      <!-- <a class="button menuButton" href="#">Contact Us</a> -->
+    </div>
+  </div>
+  <div class="sections compact hidden">
+    <div class="left"><a href="#" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="right">
+      <span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Slide #1 -->
+<section class="slide fade kenBurns" id="slide-2">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <h1 class="small ae-1">Sign In</h1>
+        <div class="fix-5-12 box-43">
+          <div class="pad shadow selected ae-2">
+            <div class="wide center"><%= form_tag '/login' do %>
+              <label class="uppercase ae-3" for="email37">Email: </label>
+              <div class="stroke round wide ae-4" id="email43"><%= text_field_tag :email %></div>
+              <label class="uppercase ae-5" for="password37">Password: </label>
+              <div class="stroke round wide ae-6" id="password43"><%= password_field_tag :password %></div>
+              <div><%= submit_tag "Log In", class: "button wide pink round uppercase ae-9" %></div>
+              <% end %>
+            </div>
+          </div>
+              <small class="block ae-10 block-43">
+                <span class="text-43">
+                  Don&rsquo;t have an account?<a href="#" class="block bold toSlide-2">Create One</a>
+                </span>
+              </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background" style="background-image:url(<%= image_url('Black-Red-Door.jpg') %>)"></div>
+</section>
+
+
+<!-- Slide #2.1 -->
+
+<section class="slide fade kenBurns" id="slide-2">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <h1 class="small ae-1">Create Account</h1>
+        <div class="fix-5-12 box-42">
+          <div class="pad shadow selected ae-3 signupBox">
+            <%= form_for(@club) do |f| %>
+              <% if @club.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
+
+                  <ul>
+                  <% @club.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="macarena">
+                <div>
+                  <div class="field signup">
+                    <%= f.label :club_name, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_name, class: "stroke round wide ae-4", id: "email43", placeholder: 'Club Name' %>
+                  </div>
+
+                  <div class="field signup">
+                    <%= f.label :contact_person, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :contact_person, class: "stroke round wide ae-4", id: "email43", placeholder: 'Contact Person' %>
+                  </div>
+
+                  <div class="field signup">
+                    <%= f.label :club_phone_number, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_phone_number, class: "stroke round wide ae-4", id: "email43", placeholder: "555-555-5555" %>
+                  </div>
+                </div>
+                <div>
+                  <div class="field">
+                    <%= f.label :club_email, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_email, class: "stroke round wide ae-4", id: "email43", placeholder: "Email" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password, nil, class: "uppercase ae-5", for: "password37" %>
+                    <%= f.password_field :password, class: "stroke round wide ae-6", id: "password43", placeholder: "Password" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password, nil, class: "uppercase ae-5", for: "password37" %>
+                    <%= f.password_field :password_confirmation, class: "stroke round wide ae-6", id: "password43", placeholder: "Confirm Password" %>
+                  </div>
+                </div>
+              </div>
+              <div class="actions">
+                <%= f.submit "Create Account", class: "button wide pink round uppercase ae-9" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="background" style="background-image:url(<%#= image_url('img-2.jpg') %>)"></div> -->
+<!-- </section> -->
+
+          <!-- RAFA, THIS HAS NO CSS ON IT -->
+          <%#= render 'form', user: @club %>
+
+          <!-- <h2><%= link_to 'Club', new_club_path %> </h2> -->
+          <!-- RAFA, THIS HAS NO CSS ON IT -->
+
+          <!-- <small class="block ae-10 block-43">
+            <span class="text-43">
+              Don&rsquo;t have an account?<a href="#" class="block bold">Create One</a>
+            </span>
+          </small> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background" style="background-image:url(<%= image_url('img-333.jpg') %>)"></div>
+</section>
+
+
+<!-- Preloader -->
+<div class="loadingIcon">
+  <svg class="loading-icon" id="loading-circle" viewBox="0 0 18 18">
+    <circle class="circle" opacity=".1" stroke="#fff" stroke-width="2" stroke-miterlimit="10" cx="9" cy="9" r="8" fill="none"></circle>
+    <circle class="dash" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="1,100" cx="9" cy="9" r="8" fill="none"></circle>
+  </svg>
+</div>
