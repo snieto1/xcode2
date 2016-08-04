@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 
 
   def create_club
-   @club = Club.find_by(params[:club_email])
+   @club = Club.find_by(club_email: params[:club_email])
      # If the club exists AND the password entered is correct.
      if @club && @club.authenticate(params[:password])
        # Save the club id inside the browser cookie. This is how we keep the club
