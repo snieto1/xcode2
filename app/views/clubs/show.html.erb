@@ -20,16 +20,17 @@
 </p>
 
 <ul>
-<% @club.tables.each do |table| %>
-    <li><% if current_user %>
-          <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
-        <% else %>
-          <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
-        <% end %>
+<%  if not @club.tables.nil? %>
+  <% @club.tables.each do |table| %>
+      <li><% if current_user %>
+            <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
+          <% else %>
+            <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+          <% end %>
 
-          <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
-          <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %></l1>
-<% end %>
+            <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
+            <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %></l1>
+  <% end %>
 </ul>
 
 <%= link_to 'Add Table', new_club_table_path(@club) %><br>
