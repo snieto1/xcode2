@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
   def check
     if current_user
       redirect_to clubs_path
+    elsif current_club
+      redirect_to current_club
     else
       redirect_to new_user_path
     end
