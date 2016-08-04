@@ -21,13 +21,21 @@
 
 <ul>
 <% @club.tables.each do |table| %>
-    <li><%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
-      <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
-      <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %></l1>
-
+    <li><%= link_to "Reserve Table #{table.table_name} $#{table.minimum} Minimum", table_reservations_path(table), method: :post %>
+      <%= link_to "Delete Table", "/clubs/#{@club.id}/tables/#{table.id}", method: :delete %></l1>
 <% end %>
 </ul>
 
 <%= link_to 'Add Table', new_club_table_path(@club) %><br>
-<%= link_to 'Edit Club', edit_club_path(@club) %><br>
-<%= link_to 'All Clubs', clubs_path %>
+<%= link_to 'Edit Club', edit_club_path(@club) %>
+
+<h2>Menu</h2>
+<br>
+
+<ul>
+<% @club.bottles.each do |bottle| %>
+    <li>Name: <%= bottle.name %> Price: <%= bottle.price %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Add Bottle', new_club_bottle_path(@club) %>
