@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 
 
   def create_club
-   @club = Club.find_by club_email: params[:club_email]
+   @club = Club.find_by(params[:club_email])
      # If the club exists AND the password entered is correct.
      if @club && @club.authenticate(params[:password])
        # Save the club id inside the browser cookie. This is how we keep the club
@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
        redirect_to club_path(@club) #check this works
      else
      # If club's login doesn't work, send them back to the login form.
-       redirect_to clubs_path, notice: 'Else Statements'
+       redirect_to '/', notice: 'Else Statements'
      end
  end
 

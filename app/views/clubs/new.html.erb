@@ -58,9 +58,9 @@
         <h1 class="small ae-1">Sign In</h1>
         <div class="fix-5-12 box-43">
           <div class="pad shadow selected ae-2">
-            <div class="wide center"><%= form_tag '/login' do %>
+            <div class="wide center"><%= form_tag '/login_club' do %>
               <label class="uppercase ae-3" for="email37">Email: </label>
-              <div class="stroke round wide ae-4" id="email43"><%= text_field_tag :email %></div>
+              <div class="stroke round wide ae-4" id="email43"><%= text_field_tag :club_email %></div>
               <label class="uppercase ae-5" for="password37">Password: </label>
               <div class="stroke round wide ae-6" id="password43"><%= password_field_tag :password %></div>
               <div><%= submit_tag "Log In", class: "button wide pink round uppercase ae-9" %></div>
@@ -91,6 +91,7 @@
         <div class="fix-5-12 box-42">
           <div class="pad shadow selected ae-3 signupBox">
             <%= form_for(@club) do |f| %>
+
               <% if @club.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
