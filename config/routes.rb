@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :bottles
   end
-  
+
   resources :users
 
   resources :clubs do
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/login' => 'users#new'
   post '/login' => 'sessions#create'
   post '/login_club' => 'sessions#create_club'
+
   get '/logout' => 'sessions#destroy'
   get '/logout_club' => 'sessions#destroy_club'
 
