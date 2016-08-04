@@ -3,6 +3,24 @@
 Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 */
+.field.signup {
+  margin-right: 70px;  
+}
+
+.signupBox {
+  width: 700px;
+  margin-left: -131px;
+}
+
+.macarena {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.block.bold {
+  color: white;
+}
 
 #sign-in-slide {
   z-index: -1;
