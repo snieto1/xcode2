@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :bottles
+  resources :clubs do
+    resources :bottles
+  end
+  
   resources :users
 
   resources :clubs do
@@ -9,7 +12,7 @@ Rails.application.routes.draw do
   resources :tables do
     resources :reservations
   end
-    
+
   resources :reservations do
     resources :reservation_bottles
   end

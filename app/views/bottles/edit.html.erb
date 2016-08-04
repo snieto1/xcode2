@@ -1,0 +1,6 @@
+<h1>Edit Bottle</h1>
+
+<%= render 'form', bottle: @bottle %>
+
+<% @club = Club.find(params[:club_id]) %>
+<%= link_to 'Back', club_path(@club) %>

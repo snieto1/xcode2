@@ -2,10 +2,16 @@ class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
   before_action :authorize_club, except: [:new, :create, :show, :index]
   before_action :authorize_user_or_club, only: [:show, :index]
+  before_action :check_current_club, only: [:show, :edit]
     # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all
+    if current_user
+      @clubs = Club.all
+    elsif current_club
+      # @club = Club.find(params[:id])
+      redirect_to club_path(current_club)
+    end
   end
 
   # GET /clubs/1
@@ -79,5 +85,9 @@ class ClubsController < ApplicationController
 
     def authorize_user_or_club
       current_user || current_club
+    end
+
+    def check_current_club
+      redirect_to current_club unless current_club == @club || current_user
     end
 end
