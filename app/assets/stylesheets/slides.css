@@ -3,6 +3,10 @@
 Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 */
+a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6 {
+  background-color: transparent;
+}
+
 .field.signup {
   margin-right: 70px;
 }
@@ -20,6 +24,7 @@ Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 .block.bold {
   color: white;
+  background-color: transparent;
 }
 
 #sign-in-slide {
