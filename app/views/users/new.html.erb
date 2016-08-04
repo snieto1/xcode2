@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="sections compact hidden">
-    <div class="left"><a href="#" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="left"><a href="<%= new_user_path %>" class="toSlide-1"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
     <div class="right">
       <span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span>
     </div>
@@ -47,7 +47,7 @@
         <div class="fix-10-12">
           <h1 class="ae-1">Looking to Party?</h1>
           <div class="ae-2">
-            <p class="hero">Do it the right way. Do it the <span style="color:red">EasyNight</span> way.</p>
+            <p class="hero">Do it the right way. Do it the <span id="extra">EasyNight</span> way.</p>
           </div>
           <a class="button round uppercase pink ae-3 nextSlide">Book your table</a>
           <div class="button play white small popupTrigger toCenter ae-6 fromCenter block play-21" data-popup-id="21-0">
@@ -365,7 +365,7 @@
 
         <div class="fix-10-12 toCenter">
           <h1 class="small ae-1">Your favorite Brands follow you</h1>
-          <div class="ae-2"><p>Think of us for your next party and make your night an <span style="color:red">EasyNight</span>.</p></div>
+          <div class="ae-2"><p>Think of us for your next party and make your night an <span id="extra">EasyNight</span>.</p></div>
         </div>
         <div class="fix-12-12">
           <ul class="grid grid-68 equal later">
