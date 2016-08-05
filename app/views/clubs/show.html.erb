@@ -1,25 +1,41 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Club name:</strong>
-  <%= @club.club_name %>
+ <strong>Club name:</strong>
+ <%= @club.club_name %>
 </p>
 
 <p>
-  <strong>Contact person:</strong>
-  <%= @club.contact_person %>
+ <strong>Contact person:</strong>
+ <%= @club.contact_person %>
 </p>
 
 <p>
-  <strong>Club phone number:</strong>
-  <%= @club.club_phone_number %>
+ <strong>Club phone number:</strong>
+ <%= @club.club_phone_number %>
 </p>
 
 <p>
-  <strong>Club email:</strong>
-  <%= @club.club_email %>
+ <strong>Club email:</strong>
+ <%= @club.club_email %>
 </p>
+
+<%= link_to "All Clubs", clubs_path if @current_user %>
+<%= link_to 'Edit Club', edit_club_path(@club) if @current_club%>
+<br>
 
 <ul>
+ <%  if not @club.tables.nil? %>
+   <% @club.tables.each do |table| %>
+       <li><% if current_user %>
+             <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
+           <% else %>
+             <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+           <% end %>
+           <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
+           <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %>
+       </l1>
+   <% end %>
+ <% end %>
   <%  if not @club.tables.nil? %>
     <% @club.tables.each do |table| %>
         <li><% if current_user %>
@@ -27,25 +43,34 @@
             <% else %>
               <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
             <% end %>
-            <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
-            <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %>
+            <%= link_to 'Delete Table', club_table_path(@club, table), method: :delete if @current_club %>
+            <%= link_to 'Edit Minimum', edit_club_table_path(@club, table) if @current_club%> <br>
         </l1>
     <% end %>
   <% end %>
 </ul>
 
 <%= link_to 'Add Table', new_club_table_path(@club) if @current_club %> <br>
-<%= link_to 'Edit Club', edit_club_path(@club) if @current_club%> <br>
 
-<%= link_to "All Clubs", clubs_path if @current_user %>
+
+
 
 <h2>Menu</h2>
 <br>
 
 <ul>
-<% @club.bottles.each do |bottle| %>
-    <li>Name: <%= bottle.name %> Price: <%= bottle.price %></li>
-<% end %>
+  <%  if not @club.bottles.nil? %>
+    <% @club.bottles.each do |bottle| %>
+        <li><% if current_user %>
+              <%= "Bottle #{bottle.name} $#{bottle.price}" %>
+            <% else %>
+              <%= "Bottle #{bottle.name} $#{bottle.price}" %>
+            <%= link_to 'Delete Bottle', club_bottle_path(@club, bottle), method: :delete if @current_club %>
+            <%= link_to 'Edit Bottle', edit_club_bottle_path(@club, bottle) if @current_club%> <br>
+            <% end %>
+        </l1>
+    <% end %>
+  <% end %>
 </ul>
 
-<%= link_to 'Add Bottle', new_club_bottle_path(@club) %>
+<%= link_to 'Add Bottle', new_club_bottle_path(@club) if @current_club %> <br>
