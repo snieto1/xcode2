@@ -37,7 +37,9 @@ class ClubsController < ApplicationController
     if @club.save
       # format.html { redirect_to @club, notice: 'Club was successfully created.' }
       # format.json { render :show, status: :created, location: @club }
-      redirect_to @club, notice: 'Club was successfully created.'
+      session[:club_id] = @club.id
+      @current_club ||= Club.find(session[:club_id]) if session[:club_id]
+      redirect_to club_path(@club)
     else
       # redirect_to '/signup'
       # flash[:notice] = "Club#create else statement"

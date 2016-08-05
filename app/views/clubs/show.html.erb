@@ -87,6 +87,7 @@
 </p>
 
 <ul>
+<<<<<<< HEAD
  <%  if not @club.tables.nil? %>
    <% @club.tables.each do |table| %>
        <li><% if current_user %>
@@ -99,6 +100,20 @@
        </l1>
    <% end %>
  <% end %>
+=======
+  <%  if not @club.tables.nil? %>
+    <% @club.tables.each do |table| %>
+        <li><% if current_user %>
+              <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
+            <% else %>
+              <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+            <% end %>
+            <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
+            <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %>
+        </l1>
+    <% end %>
+  <% end %>
+>>>>>>> a5e379538386ed4cc5c3547cd7bfdf8023053dff
 </ul>
 
 <%= link_to 'Add Table', new_club_table_path(@club) if @current_club %> <br>
