@@ -82,9 +82,9 @@
       <symbol id="right" viewBox="-2 6 16 16"><path d="M13.7 13.3l-5-5c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l3.3 3.3h-11.6c-.6 0-1 .4-1 1s.4 1 1 1h11.6l-3.3 3.3c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3l5-5c.2-.2.3-.5.3-.7s-.1-.5-.3-.7z"/></symbol>
     </svg>
     <% if current_user %>
-      Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+      Hello <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
     <% elsif current_club %>
-      Signed in as <%= current_club.club_name %> | <%= link_to "Logout", '/logout_club' %>
+      Hello <%= current_club.club_name %> | <%= link_to "Logout", '/logout_club' %>
 
     <% end %>
 

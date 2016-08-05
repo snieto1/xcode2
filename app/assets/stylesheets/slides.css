@@ -7,6 +7,11 @@ Santiago, William and Myself.... EASY NIGHT!! Let's do this!
   color: #E91E63;
 }
 
+.uppercase {
+  color: white;
+  background-color: transparent;
+}
+
 a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6 {
   background-color: transparent;
   color: white;
