@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Club name:</strong>
-  <%= @club.club_name %>
+ <strong>Club name:</strong>
+ <%= @club.club_name %>
 </p>
 
 <p>
-  <strong>Contact person:</strong>
-  <%= @club.contact_person %>
+ <strong>Contact person:</strong>
+ <%= @club.contact_person %>
 </p>
 
 <p>
-  <strong>Club phone number:</strong>
-  <%= @club.club_phone_number %>
+ <strong>Club phone number:</strong>
+ <%= @club.club_phone_number %>
 </p>
 
 <p>
-  <strong>Club email:</strong>
-  <%= @club.club_email %>
+ <strong>Club email:</strong>
+ <%= @club.club_email %>
 </p>
 
 <%= link_to "All Clubs", clubs_path if @current_user %>
@@ -24,6 +24,18 @@
 <br>
 
 <ul>
+ <%  if not @club.tables.nil? %>
+   <% @club.tables.each do |table| %>
+       <li><% if current_user %>
+             <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
+           <% else %>
+             <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+           <% end %>
+           <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
+           <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %>
+       </l1>
+   <% end %>
+ <% end %>
   <%  if not @club.tables.nil? %>
     <% @club.tables.each do |table| %>
         <li><% if current_user %>
