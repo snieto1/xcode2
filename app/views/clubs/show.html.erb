@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-<p>
  <strong>Club name:</strong>
  <%= @club.club_name %>
 </p>
@@ -29,35 +27,19 @@
        <li><% if current_user %>
              <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
            <% else %>
-             <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+             <%= link_to "Table #{table.table_name} $#{table.minimum}", table_path(table) %>
            <% end %>
-           <%= link_to "Delete Table", club_table_path(@club, table), method: :delete %>
-           <%= link_to "Edit Minimum", edit_club_table_path(@club, table) %>
+           <%= link_to "Delete Table", club_table_path(@club, table), method: :delete if @current_club %>
+           <%= link_to "Edit Minimum", edit_club_table_path(@club, table) if @current_club %>
        </l1>
    <% end %>
  <% end %>
-  <%  if not @club.tables.nil? %>
-    <% @club.tables.each do |table| %>
-        <li><% if current_user %>
-              <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_reservations_path(table), method: :post %>
-            <% else %>
-              <%= link_to "Reserve Table #{table.table_name} $#{table.minimum}", table_path(table) %>
-            <% end %>
-            <%= link_to 'Delete Table', club_table_path(@club, table), method: :delete if @current_club %>
-            <%= link_to 'Edit Minimum', edit_club_table_path(@club, table) if @current_club%> <br>
-        </l1>
-    <% end %>
-  <% end %>
 </ul>
 
-<%= link_to 'Add Table', new_club_table_path(@club) if @current_club %> <br>
+<%= link_to 'Add Table', new_club_table_path(@club) if @current_club %></div> <br>
 
-
-
-
-<h2>Menu</h2>
+<h2>Bottle Menu</h2>
 <br>
-
 <ul>
   <%  if not @club.bottles.nil? %>
     <% @club.bottles.each do |bottle| %>
@@ -72,5 +54,4 @@
     <% end %>
   <% end %>
 </ul>
-
-<%= link_to 'Add Bottle', new_club_bottle_path(@club) if @current_club %> <br>
+<%= link_to 'Add Bottle', new_club_bottle_path(@club) if @current_club %>

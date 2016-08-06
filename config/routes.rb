@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :clubs do
     resources :bottles
   end
@@ -36,6 +37,10 @@ Rails.application.routes.draw do
   post '/clubs' => 'clubs#create'
 
   post '/reservation_bottles/:bottle_id' => 'reservation_bottles#create'
+  delete '/reservation_bottles/:bottle_id' => 'reservation_bottles#delete'
+
+  post 'users/:user_id/payments/checkout' => 'payments#confirmation'
+  get 'users/:user_id/payments/checkout' => "payments#checkout"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
