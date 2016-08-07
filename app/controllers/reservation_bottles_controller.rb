@@ -16,7 +16,7 @@ class ReservationBottlesController < ApplicationController
     @table = current_user.reservation.table
     @reservation = current_user.reservation
     bottle = Bottle.find(params[:bottle_id])
-    ReservationBottle.destroy(bottle, reservation: @reservation)
+    ReservationBottle.find_by(bottle: bottle, reservation: @reservation).destroy
     redirect_to :back
   end
 
