@@ -3,9 +3,11 @@
 <%= "#{@user.first_name.capitalize} your reservation has been confirmed.  Your credit card was charged $#{@total}." %><br>
 <%= "Thank You and have fun!" %><br>
 
-<%= "Your table at #{@club.club_name} includes" %>
+<%= "Your table at #{@club.club_name} includes" %><br>
 <% @table.reservation.bottles.each do |bottle| %>
 <%= "#{bottle.name}" %><br>
 <% end %>
 
+<% @reservation = Reservation.find_by(user_id: @user.id) %>
+<%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete %><br>
 <%= link_to "All Clubs", clubs_path %>
