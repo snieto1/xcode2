@@ -395,6 +395,8 @@ h3 + h1,
 h3.uppercase,
 .h3.uppercase {
   font-size:19px;
+  color: white;
+  background-color: transparent;
 }
 
 h3.small.uppercase,

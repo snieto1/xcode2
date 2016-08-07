@@ -11,4 +11,13 @@ class ReservationBottlesController < ApplicationController
     ReservationBottle.create!(bottle: bottle, reservation: @reservation)
     redirect_to :back
   end
+
+  def delete
+    @table = current_user.reservation.table
+    @reservation = current_user.reservation
+    bottle = Bottle.find(params[:bottle_id])
+    ReservationBottle.destroy(bottle, reservation: @reservation)
+    redirect_to :back
+  end
+
 end

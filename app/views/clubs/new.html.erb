@@ -62,7 +62,7 @@
               <label class="uppercase ae-3" for="email37">Email: </label>
               <div class="stroke round wide ae-4" id="email43"><%= text_field_tag :club_email %></div>
               <label class="uppercase ae-5" for="password37">Password: </label>
-              <div class="stroke round wide ae-6" id="password43"><%= password_field_tag :password %></div>
+              <div class="stroke round wide ae-6" id="password43"><%= password_field_tag :password, class: "stroke round wide ae-6", id: "password43", placeholder: "Password" %>
               <div><%= submit_tag "Log In", class: "button wide pink round uppercase ae-9" %></div>
               <% end %>
             </div>

@@ -5,6 +5,7 @@ class Club < ApplicationRecord
   before_save :format
 
   # Validates club name
+<<<<<<< HEAD
   validates :club_name, presence: true, length: { maximum: 25 }
 
   # Email and phone format
@@ -19,6 +20,22 @@ class Club < ApplicationRecord
 
     # Validates Password
     validates :password_digest, presence: true, length: { minimum: 7}
+=======
+  # validates :club_name, presence: true, length: { maximum: 255 }
+  #
+  # # Email and phone format
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # VALID_PHONE_NUMBER_REGEX = /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
+  #
+  # # Validates Email
+  # validates :club_email, presence: true, format: { with: VALID_EMAIL_REGEX, message: "Not valid email"}, uniqueness: {case_sensitive: false}
+  #
+  # # Validates Phone
+  #   validates :club_phone_number, presence: true, length: { maximum: 55 }
+  #
+  #   # Validates Password
+  #   validates :password_digest, presence: true, length: { minimum: 7}
+>>>>>>> cefce65a7d049a22ed84de301d51f7923e6fb9cf
 
   has_secure_password
 

@@ -4,8 +4,8 @@ class Bottle < ApplicationRecord
   has_many :reservations, through: :reservation_bottles
 
   # Validates Bottle Name
-  validates: :name, presence: true, length: {maximum: 35}
+  # validates: :name, presence: true, length: {maximum: 35}
 
   # Validates Bottle Price
-  validates: :price, presence: true, numericality: { only_integer: true}
+  # validates: :price, presence: true, numericality: { only_integer: true}
 end

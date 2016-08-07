@@ -1,11 +1,24 @@
 <h1>Current Bottles</h1>
+
 <% @table.reservation.bottles.each do |bottle| %>
-  <%= "You have #{bottle.name}" %><br>
-<% end %>
+  <%= "#{bottle.name} $#{bottle.price}" %><br>
+<% end %><br>
+
+<% @total = 0 %>
+<% @table.reservation.bottles.each.sum do |bottle| %>
+  <% total = bottle.price %>
+  <% @total += total %>
+<% end %><br>
+<%= "Your balance is $#{@total}" %> <%= "You must reach the minimum below to continue" if @total < @table.minimum.to_i %><br>
+<%= "Table minimum $#{@table.minimum}" %>
+
 <h1>Add Bottles</h1>
+
 <ul>
-<% @table.club.bottles.each do |bottle| %>
-  <li><%= bottle.name %> $<%= bottle.price %>
-    <%= link_to 'Add Bottle to Reservation', "/reservation_bottles/#{bottle.id}", method: :post %>
-<% end %>
+  <% @table.club.bottles.each do |bottle| %>
+    <li><%= bottle.name %> $<%= bottle.price %>
+      <%= link_to 'Add Bottle to Reservation', "/reservation_bottles/#{bottle.id}", method: :post %>
+  <% end %>
 </ul>
+
+<%= link_to 'Checkout', "/users/#{current_user[:id]}/payments/checkout" if @total >= @table.minimum.to_i %>
