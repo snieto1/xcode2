@@ -16,10 +16,10 @@ class Club < ApplicationRecord
   validates :club_email, presence: true, format: { with: VALID_EMAIL_REGEX, message: "Not valid email"}, uniqueness: {case_sensitive: false}
 
   # Validates Phone
-    validates :club_phone_number, presence: true, length: { maximum: 55 }
+    validates :club_phone_number, presence: true, length: { maximum: 15 }
 
     # Validates Password
-    validates :password_digest, presence: true, length: { minimum: 7}
+    validates :password_digest, presence: true, length: { minimum: 7 }
 
   has_secure_password
 
