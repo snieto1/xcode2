@@ -1,5 +1,73 @@
-<h1>Editing Club</h1>
+<section class="slide fade kenBurns" id="slide-2">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <h1 class="small ae-1">Edit Club Information</h1>
+        <div class="fix-5-12 box-42">
+          <div class="pad shadow selected ae-3 signupBox">
+            <%= form_for(@club) do |f| %>
 
-<%= render 'form', club: @club %>
+              <% if @club.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
 
-<%= link_to 'Back', @club %> |
+                  <ul>
+                  <% @club.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="macarena">
+                <div>
+                  <div class="field signup">
+                    <%= f.label :club_name, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_name, class: "stroke round wide ae-4", id: "email43", placeholder: 'Club Name' %>
+                  </div>
+
+                  <div class="field signup">
+                    <%= f.label :contact_person, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :contact_person, class: "stroke round wide ae-4", id: "email43", placeholder: 'Contact Person' %>
+                  </div>
+
+                  <div class="field signup">
+                    <%= f.label :club_phone_number, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_phone_number, class: "stroke round wide ae-4", id: "email43", placeholder: "555-555-5555" %>
+                  </div>
+                </div>
+                <div>
+                  <div class="field">
+                    <%= f.label :club_email, nil, class: "uppercase ae-3", for: "email37" %>
+                    <%= f.text_field :club_email, class: "stroke round wide ae-4", id: "email43", placeholder: "Email" %>
+                  </div>
+                </div>
+              </div>
+              <div class="actions">
+                <%= f.submit "Submit Changes", class: "button wide pink round uppercase ae-9" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="background" style="background-image:url(<%#= image_url('img-2.jpg') %>)"></div> -->
+<!-- </section> -->
+
+          <!-- RAFA, THIS HAS NO CSS ON IT -->
+          <%#= render 'form', user: @club %>
+
+          <!-- <h2><%= link_to 'Club', new_club_path %> </h2> -->
+          <!-- RAFA, THIS HAS NO CSS ON IT -->
+
+          <!-- <small class="block ae-10 block-43">
+            <span class="text-43">
+              Don&rsquo;t have an account?<a href="#" class="block bold">Create One</a>
+            </span>
+          </small> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background" style="background-image:url(<%= image_url('oceandrivesunset') %>)"></div>
+</section>
