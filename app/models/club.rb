@@ -5,7 +5,7 @@ class Club < ApplicationRecord
   before_save :format
 
   # Validates club name
-  validates :club_name, presence: true, length: { maximum: 255 }
+  validates :club_name, presence: true, length: { maximum: 25 }
 
   # Email and phone format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

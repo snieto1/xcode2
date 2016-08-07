@@ -15,10 +15,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX, message: "Not valid email" }, uniqueness: { case_sensitive: false }
 
   # Validates Age
-  # validates :age, presence:true, numericality: { greater_than_or_equal_to: 21 }
+  # validates :age, presence: true, numericality: { greater_than_or_equal_to: 21 }
 
   # Validates Phone
-    validates :phone_number, presence: true, length: { maximum: 55 }
+  validates :phone_number, presence: true, length: { maximum: 55 }
 
   # Validates Password
   validates :password_digest, presence: true, length: { minimum: 7 }
