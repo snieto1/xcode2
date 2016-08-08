@@ -1,13 +1,18 @@
-<h1>Checkout with Stripe</h1>
+<div class="background" style="background-image:url(<%= image_url('bottles.png') %>); height: 100%;">
 
-<form action="" method="POST">
+
+<h1 class="this_page_style">Checkout</h1>
+
+
+<form class="checkout" action="" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
     data-amount=<%= "#{@total}" %>
     data-name="Stripe.com"
     data-description="Widget"
-    data-image="/img/documentation/checkout/marketplace.png"
+    data-image=<%= image_url('Tunnel.jpeg') %>
     data-locale="auto">
   </script>
 </form>
+</div>
