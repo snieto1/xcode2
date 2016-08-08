@@ -7,12 +7,17 @@ Santiago, William and Myself.... EASY NIGHT!! Let's do this!
   color: #E91E63;
 }
 
+.whitetransparent {
+  color: white;
+  background-color: transparent;
+}
+
 .uppercase {
   color: white;
   background-color: transparent;
 }
 
-a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6 {
+a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6, a.yolo {
   background-color: transparent;
   color: white;
 }
@@ -4226,7 +4231,7 @@ h3.text-66 span { letter-spacing:0.2em;}
 .grid-71:hover .cell-71:after { opacity:0;}
 @media screen and (max-width:1023px) { .grid-71 .cell-71:after { display:none;}}
 .box-72 { padding-top:25px;}
-.image-73.shiftImageVertical.shiftImage { margin: -13% 0 -6%;}
+.image-73.shiftImageVertical.shiftImage { margin: -3% 0 -6%;}
 .icon-73 { margin-bottom:20px; margin-top:10px;}
 .cell-73 { border-radius:20px; padding:18px 35px 10px; stroke:#fff; position:relative; display:block; -webkit-transition:0.25s; transition:0.25s; -webkit-box-shadow: 0 0 1px rgba(41,41,41,0); box-shadow: 0 0 1px rgba(41,41,41,0);}
 .cell-73 svg { stroke:#fff;}

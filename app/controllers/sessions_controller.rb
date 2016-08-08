@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:club_id] = nil
     session[:user_id] = nil
     redirect_to '/login'
   end
@@ -63,8 +64,8 @@ class SessionsController < ApplicationController
      end
  end
 
-  def destroy_club
-    session[:club_id] = nil
-    redirect_to '/login'
-  end
+  # def destroy_club
+  #   session[:club_id] = nil
+  #   redirect_to '/login'
+  # end
 end
