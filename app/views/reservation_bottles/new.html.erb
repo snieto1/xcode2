@@ -1,9 +1,9 @@
 <h1>Current Bottles</h1>
 
-<% @table.reservation.bottles.each do |bottle| %>
-  <%= "#{bottle.name} $#{bottle.price}" %>
-  <%= link_to 'Remove Bottle from Reservation', "/reservation_bottles/#{bottle.id}", method: :delete %><br>
-<% end %><br>
+  <% @table.reservation.bottles.each do |bottle| %>
+    <%= "#{bottle.name} $#{bottle.price}" %>
+    <%= link_to 'Remove Bottle from Reservation', "/reservation_bottles/#{bottle.id}", method: :delete %><br>
+  <% end %><br>
 
 <% @total = 0 %>
 <% @table.reservation.bottles.each.sum do |bottle| %>
