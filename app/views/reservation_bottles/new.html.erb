@@ -22,6 +22,5 @@
   <% end %>
 </ul>
 
-
+<%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete %><br>
 <%= link_to 'Checkout', "/users/#{current_user[:id]}/payments/checkout" if @total >= @table.minimum.to_i %>
-<%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete %>

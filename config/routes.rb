@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   post 'users/:user_id/payments/checkout' => 'payments#confirmation'
   get 'users/:user_id/payments/checkout' => "payments#checkout"
+  get 'users/:user_id/payments/confirmation' => 'payments#confirmation'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

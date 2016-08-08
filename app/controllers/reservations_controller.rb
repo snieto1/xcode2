@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  protect_from_forgery with: :null_session
   def new
     @table = Table.find(params[:table_id])
     @reservation = Reservation.new
@@ -15,5 +16,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to clubs_path
+  end
+
+  def show
+    @user = current_user
+    @reservation = Reservation.find_by(user_id: @user.id)
   end
 end
