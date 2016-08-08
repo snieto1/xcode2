@@ -1,13 +1,22 @@
-<h1>Confirmation Page</h1>
+<!-- Slide #1 -->
+<div class="background" style="background-image:url(assets/img/confirmation.jpg)">
+<section class="slide fade kenBurns">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
 
-<%= "#{@user.first_name.capitalize} your reservation has been confirmed.  Your credit card was charged $#{@total}." %><br>
-<%= "Thank You and have fun!" %><br>
+        <h3 class="small ae-1"><%= "#{@user.first_name.capitalize} your reservation has been confirmed.  Your credit card was charged $#{@total}." %></h3>
+        <h3 class="small ae-1"><%= "Your table at #{@club.club_name} includes" %></h3><br>
+        <h3 class="small ae-1"><% @table.reservation.bottles.each do |bottle| %></h3>
+        <h3 class="uppercase ae-1"><%= "#{bottle.name}" %></h3>
+        <% end %>
+        <h1 class="huge ae-2 cropBottom">Thank You</h1><br><br>
+        <% @reservation = Reservation.find_by(user_id: @user.id) %>
+        <%= link_to "Cancel Reservation", reservation_path(@reservation), method: :delete %><br>
+        <%= link_to "All Clubs", clubs_path %>
 
-<%= "Your table at #{@club.club_name} includes" %><br>
-<% @table.reservation.bottles.each do |bottle| %>
-<%= "#{bottle.name}" %><br>
-<% end %>
-
-<% @reservation = Reservation.find_by(user_id: @user.id) %>
-<%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete %><br>
-<%= link_to "All Clubs", clubs_path %>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
