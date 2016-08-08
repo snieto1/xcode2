@@ -7,9 +7,10 @@ class ReservationBottlesController < ApplicationController
   end
 
   def create
+    @reservation = Reservation.find_by(user_id: current_user.id)
     @club = @reservation.table.club
     @table = current_user.reservation.table
-    @reservation = current_user.reservation
+
     bottle = Bottle.find(params[:bottle_id])
     ReservationBottle.create!(bottle: bottle, reservation: @reservation)
     redirect_to :back

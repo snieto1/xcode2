@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @reservation = Reservation.find_by(table_id: params[:table_id])
     @club = @reservation.table.club
     @table = Table.find(params[:table_id])
     @reservation = Reservation.create!(table: @table, user: current_user)
