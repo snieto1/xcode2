@@ -1,10 +1,13 @@
 class ReservationBottlesController < ApplicationController
   def new
+    @reservation = Reservation.find(params[:reservation_id])
+    @club = @reservation.table.club
     @table = current_user.reservation.table
     @reservation = current_user.reservation
   end
 
   def create
+    @club = @reservation.table.club
     @table = current_user.reservation.table
     @reservation = current_user.reservation
     bottle = Bottle.find(params[:bottle_id])
