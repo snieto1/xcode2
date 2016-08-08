@@ -1,5 +1,10 @@
 <!-- Panel top  -->
 
+  <% @table.reservation.bottles.each do |bottle| %>
+    <%= "#{bottle.name} $#{bottle.price}" %>
+    <%= link_to 'Remove Bottle from Reservation', "/reservation_bottles/#{bottle.id}", method: :delete %><br>
+  <% end %><br>
+
 <nav class="panel top forceMobileView">
   <div class="sections desktop">
     <div class="left"><a href="<%= new_user_path %>" class="yolo"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
