@@ -1,4 +1,125 @@
- <strong>Club name:</strong>
+<!-- <nav class="side left">
+  <div class="navigation">
+    <div class="cell">
+      <span class="prevSlide"><svg class="sideArrow"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left"></use></svg></span>
+    </div>
+  </div>
+</nav>
+
+<nav class="side">
+  <div class="navigation">
+    <div class="cell">
+      <span class="nextSlide"><svg class="sideArrow"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use></svg></span>
+    </div>
+  </div>
+</nav> -->
+
+<!-- Panel top  -->
+
+<nav class="panel top forceMobileView">
+  <div class="sections desktop">
+    <div class="left"><a href="<%= new_user_path %>" class="yolo"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="right">
+      <ul class="menu">
+        <li><a href="#" class="toSlide-1">Nightclubs</a></li>
+        <li><a href="<%= sessions_destroy_path %>" class="yolo">Logout</a></li>
+      </ul>
+      <!-- <a class="button menuButton" href="#">Contact Us</a> -->
+    </div>
+  </div>
+  <!-- <div class="sections compact hidden">
+    <div class="left"><a href="<%= new_user_path %>"><svg style="width:10px;height:31px"><%= image_tag 'logo.png', width: 130, alt: 'Logo' %></svg></a></div>
+    <div class="right">
+      <span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span>
+    </div>
+  </div> -->
+</nav>
+<!-- Slide #73 -->
+<section class="slide fade kenBurns">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+
+        <div class="fix-12-12">
+          <ul class="grid">
+            <li class="col-6-12 left box-73">
+              <h1 class="small ae-2">Choose your Section</h1>
+              <div class="ae-3"><p>With EasyNight booking your table at your favorite NightClub has never been this easy.</p></div>
+              <div class="ae-4"><p> Simply click on the desired section based on your budget and location inside of the Club.</p></div>
+            </li>
+            <li class="col-6-12 left ae-1 fromAbove" data-action="zoom">
+              <%= image_tag @club.image_url, alt: "Club Layout Image", class: "shiftImage shiftImageVertical image-73" %>
+            </li>
+          </ul>
+
+          <ul class="grid fixedSpaces equal center grid-73">
+            <% if @club.tables[0] %>
+              <li class="col-4-12 ae-5">
+                <%= link_to table_reservations_path(@club.tables[0]), method: :post, class: "cell-73 equalElement" do %>
+                  <h3 class="uppercase">Section 1</h3>
+                  <p class="small">$<%= @club.tables[0].minimum %></p>
+                <%end%>
+              </li>
+            <% end %>
+            <% if @club.tables[1] %>
+            <li class="col-4-12 ae-6">
+              <%= link_to table_reservations_path(@club.tables[1]), method: :post, class: "cell-73 equalElement" do %>
+                <h3 class="uppercase">Section 2</h3>
+                <p class="small">$<%= @club.tables[1].minimum %></p>
+              <%end%>
+            </li>
+            <% end %>
+            <% if @club.tables[2] %>
+            <li class="col-4-12 ae-6">
+              <%= link_to table_reservations_path(@club.tables[2]), method: :post, class: "cell-73 equalElement" do %>
+                <h3 class="uppercase">Section 3</h3>
+                <p class="small">$<%= @club.tables[2].minimum %></p>
+              <%end%>
+            </li>
+            <% end %>
+            <% if @club.tables[3] %>
+            <li class="col-4-12 ae-6">
+              <%= link_to table_reservations_path(@club.tables[3]), method: :post, class: "cell-73 equalElement" do %>
+                <h3 class="uppercase">Section 4</h3>
+                <p class="small">$<%= @club.tables[3].minimum %></p>
+              <%end%>
+            </li>
+            <% end %>
+            <% if @club.tables[4] %>
+            <li class="col-4-12 ae-6">
+              <%= link_to table_reservations_path(@club.tables[4]), method: :post, class: "cell-73 equalElement" do %>
+                <h3 class="uppercase">Section 5</h3>
+                <p class="small">$<%= @club.tables[4].minimum %></p>
+              <%end%>
+            </li>
+            <% end %>
+            <% if @club.tables[5] %>
+            <li class="col-4-12 ae-6">
+              <%= link_to table_reservations_path(@club.tables[5]), method: :post, class: "cell-73 equalElement" do %>
+                <h3 class="uppercase">Section 6</h3>
+                <p class="small">$<%= @club.tables[5].minimum %></p>
+              <%end%>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="background" style="background-image:url(<%= image_url('img-clubs.jpg') %>)"></div>
+</section>
+
+<!-- Preloader -->
+<div class="loadingIcon">
+  <svg class="loading-icon" id="loading-circle" viewBox="0 0 18 18">
+    <circle class="circle" opacity=".1" stroke="#fff" stroke-width="2" stroke-miterlimit="10" cx="9" cy="9" r="8" fill="none"></circle>
+    <circle class="dash" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="1,100" cx="9" cy="9" r="8" fill="none"></circle>
+  </svg>
+</div>
+
+
+ <!-- <strong>Club name:</strong>
  <%= @club.club_name %>
 </p>
 
@@ -22,6 +143,7 @@
 <br>
 
 <ul>
+<<<<<<< HEAD
   <!-- if club has no table don't run this code -->
   <%  if not @club.tables.nil? %>
   <!-- find all the table in the club -->
@@ -70,4 +192,4 @@
     <% end %>
   <% end %>
 </ul>
-<%= link_to 'Add Bottle', new_club_bottle_path(@club) if @current_club %>
+<%= link_to 'Add Bottle', new_club_bottle_path(@club) if @current_club %> -->
