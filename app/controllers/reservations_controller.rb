@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   protect_from_forgery with: :null_session
   def new
-    @table = Table.find(params[:table_id])
+    # @table = Table.find(params[:table_id])
     @reservation = Reservation.new
   end
 
