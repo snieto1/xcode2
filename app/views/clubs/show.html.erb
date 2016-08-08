@@ -22,18 +22,34 @@
 <br>
 
 <ul>
- <%  if not @club.tables.nil? %>
-   <% @club.tables.each do |table| %>
-       <li><% if current_user %>
-             <%= link_to "Reserve Table #{table.table_name} Table minimum $#{table.minimum}", table_reservations_path(table), method: :post %>
-           <% else %>
-             <%= link_to "Table #{table.table_name} $#{table.minimum}", table_path(table) %>
-           <% end %>
-           <%= link_to "Delete Table", club_table_path(@club, table), method: :delete if @current_club %>
-           <%= link_to "Edit Minimum", edit_club_table_path(@club, table) if @current_club %>
-       </l1>
-   <% end %>
- <% end %>
+  <!-- if club has no table don't run this code -->
+  <%  if not @club.tables.nil? %>
+  <!-- find all the table in the club -->
+     <% @club.tables.each do |table| %>
+     <!-- check to see if you are a user... different nav for club -->
+         <li><% if current_user %>
+           <!-- check to see if the table is already reserved, then don't allow to reserve it -->
+                <% if Reservation.find_by(table_id: table.id).nil? %>
+                  <%= link_to "Reserve Table #{table.table_name} Table minimum $#{table.minimum}", table_reservations_path(table), method: :post %>
+                <% else %>
+                  <%= "Reserve Table #{table.table_name} Table minimum $#{table.minimum}" %> <% "Table is reserved" %>
+                <% end %>
+             <!-- if your are a club clicking will take you to @table.show -->
+             <% else %>
+                <%= link_to "Table #{table.table_name} $#{table.minimum}", table_path(table) %>
+                <!-- check to see if the table is already reserved -->
+                <% if Reservation.find_by(table_id: table.id).nil? %>
+                  <%= "Table has not been reserved" %>
+                <% else %>
+                <!-- want to show the total for the reservation of this table -->
+                  <%= "Table is reserved:" %>
+                <% end %>
+             <% end %>
+             <%= link_to "Delete Table", club_table_path(@club, table), method: :delete if @current_club %>
+             <%= link_to "Edit Minimum", edit_club_table_path(@club, table) if @current_club %>
+         </l1>
+     <% end %>
+  <% end %>
 </ul>
 
 <%= link_to 'Add Table', new_club_table_path(@club) if @current_club %></div> <br>
