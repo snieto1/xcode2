@@ -12,9 +12,9 @@
         <h1 class="huge ae-8 cropBottom">Thank You</h1><br><br>
         <% @reservation = Reservation.find_by(user_id: @user.id) %>
         <%= link_to "Cancel Reservation", reservation_path(@reservation), method: :delete, class: "button pink round uppercase button-52 ae-4" %><br>
-        <%= link_to "All Clubs", clubs_path, class: "button pink round uppercase button-52 ae-5"%>
+        <%= link_to "Take me back to NightClubs", clubs_path, class: "button pink round uppercase button-52 ae-5"%>
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(<%= image_url('img-clubs.jpeg') %>);"></div>
+  <div class="background" style="background-image:url(<%= image_url('img-4.jpg') %>);"></div>
 </section>

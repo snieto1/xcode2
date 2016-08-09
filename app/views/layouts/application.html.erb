@@ -95,31 +95,33 @@
     <script
       src="https://checkout.stripe.com/checkout.js" ></script>
     <script>
-      var handler = StripeCheckout.configure({
-        key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-        image: "<%= image_url('Tunnel.jpeg') %>",
-        locale: 'auto',
-        token: function(token) {
-          $('.checkout-form').submit();
-          // You can access the token ID with `token.id`.
-          // Get the token ID to your server-side code for use.
-        }
-      });
-
-      $('.checkout-btn').on('click', function(e) {
-        // Open Checkout with further options:
-        handler.open({
-          name: 'Stripe.com',
-          description: 'Widget',
-          amount: <%= "#{@total}" %>
+      if ($('.checkout-btn')) {
+        var handler = StripeCheckout.configure({
+          key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+          image: "<%= image_url('Tunnel.jpeg') %>",
+          locale: 'auto',
+          token: function(token) {
+            $('.checkout-form').submit();
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+          }
         });
-        e.preventDefault();
-      });
 
-      // Close Checkout on page navigation:
-      $(window).on('popstate', function() {
-        handler.close();
-      });
+        $('.checkout-btn').on('click', function(e) {
+          // Open Checkout with further options:
+          handler.open({
+            name: 'Stripe.com',
+            description: 'Widget',
+            amount: <%= @total || 0 %>
+          });
+          e.preventDefault();
+        });
+
+        // Close Checkout on page navigation:
+        $(window).on('popstate', function() {
+          handler.close();
+        });
+      }
     </script>
   </body>
 </html>
