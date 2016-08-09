@@ -1,22 +1,20 @@
 <!-- Slide #1 -->
-<div class="background" style="background-image:url(assets/img/confirmation.jpg)">
 <section class="slide fade kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
-
-        <h3 class="small ae-1"><%= "#{@user.first_name.capitalize} your reservation has been confirmed.  Your credit card was charged $#{@total}." %></h3>
-        <h3 class="small ae-1"><%= "Your table at #{@club.club_name} includes" %></h3><br>
-        <h3 class="small ae-1"><% @table.reservation.bottles.each do |bottle| %></h3>
-        <h3 class="uppercase ae-1"><%= "#{bottle.name}" %></h3>
-        <% end %>
-        <h1 class="huge ae-2 cropBottom">Thank You</h1><br><br>
+        <h1 class="small ae-1"><%= "Congratulations #{@user.first_name.capitalize}" %></h3><br>
+        <p class="small ae-2"><%= "Your reservation is now confirmed and your credit card has been charged $#{@total}." %></p><br>
+        <p class="small ae-3"><%= "Your table at #{@club.club_name} Nightclub will include:" %></p><br>
+        <h3 class="small ae-4"><% @table.reservation.bottles.each do |bottle| %></h3>
+        <h3 class="uppercase ae-5"><%= "#{bottle.name}" %></h3>
+        <% end %><br><br>
+        <h1 class="huge ae-8 cropBottom">Thank You</h1><br><br>
         <% @reservation = Reservation.find_by(user_id: @user.id) %>
-        <%= link_to "Cancel Reservation", reservation_path(@reservation), method: :delete %><br>
-        <%= link_to "All Clubs", clubs_path %>
-
+        <%= link_to "Cancel Reservation", reservation_path(@reservation), method: :delete, class: "button pink round uppercase button-52 ae-4" %><br>
+        <%= link_to "All Clubs", clubs_path, class: "button pink round uppercase button-52 ae-5"%>
       </div>
     </div>
   </div>
+  <div class="background" style="background-image:url(<%= image_url('img-clubs.jpeg') %>);"></div>
 </section>
-</div>

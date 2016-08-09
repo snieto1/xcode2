@@ -1,19 +1,18 @@
-<div class="background" style="background-image:url(<%= image_url('bottles.png') %>); height: 100%;">
-
-
-<h1 class="this_page_style">Checkout</h1>
-<h3 class="this_page_style2"><%="Your total is $#{@total.to_i/100}" %></h3>
-
-
-<form class="checkout" action="" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-amount=<%= "#{@total}" %>
-    data-name="Stripe.com"
-    data-description="Widget"
-    data-image=<%= image_url('Tunnel.jpeg') %>
-    data-locale="auto">
-  </script>
-</form>
+<!-- Slide #1 -->
+<section class="slide fade kenBurns">
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <h1 class="small ae-1">Checkout</h1>
+        <div class="ae-2"><p><%="Your final balance is $#{@total.to_i/100}" %></p></div>
+        <div class="fix-5-12 box-52">
+          <button class="button pink round wide uppercase button-52 ae-8 checkout-btn"
+          >Pay With Card</button>
+        </div>
+        <form class="checkout-form" action="" method="POST"></form>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="background" style="background-image:url(<%= image_url('img-clubs.jpeg') %>);"></div>
+</section>

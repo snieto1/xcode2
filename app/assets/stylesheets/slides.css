@@ -4355,6 +4355,7 @@ h3.text-66 span { letter-spacing:0.2em;}
 .slide.whiteSlide .button.white.button-87 { -webkit-box-shadow: 0 2px 8px 2px rgba(41,41,41,0.25); box-shadow: 0 2px 8px 2px rgba(41,41,41,0.25);}
 .text-87 { font-size:24px; position:relative; top:6px; left:11px;}
 .header-87 { margin-bottom: 50px;}
+
 @media screen and (max-width:570px) { .button.button-87,.text-87 { float:left;} .text-87 strong { display:block;} .text-87 { font-size:20px; top:-4px; text-align:left;}}
 .box-88 { margin-top:50px;}
 .img-88 { margin-bottom: -3%;}

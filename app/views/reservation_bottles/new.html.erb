@@ -52,8 +52,10 @@
             <% end %>
           </ul>
 
-          <li><a class="yolo"><%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete %></a></li><br>
-          <li><a class="yolo"><%= link_to 'Checkout', "/users/#{current_user[:id]}/payments/checkout" if @total >= @table.minimum.to_i %></a></li>
+          <li><%= link_to 'Cancel Reservation', reservation_path(@reservation), method: :delete, class: "button round uppercase pink ae-3" %></li><br>
+          <% if @total >= @table.minimum.to_i %>
+          <li><%= link_to 'Checkout', "/users/#{current_user[:id]}/payments/checkout", class: "button round uppercase pink ae-3" %></li>
+          <% end %>
         </div>
 
       </div>
