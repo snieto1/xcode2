@@ -19,11 +19,11 @@ Santiago, William and Myself.... EASY NIGHT!! Let's do this!
 
 .uppercase {
   color: white;
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
-a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6, a.yolo {
-  background-color: transparent;
+a.toSlide-1, a.toSlide-2, a.toSlide-3, a.toSlide-4, a.toSlide-5, a.toSlide-6, a.yolo:hover {
+  background-color: transparent !important;
   color: white;
 }
 

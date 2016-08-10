@@ -14,53 +14,6 @@
   </div>
 </nav>
 
-<!-- Example shake -->
-<!-- copy scripts -->
-<script>
-	//jump on mouse scroll
-	$('html,body').on('mousewheel',function(event){
-		var $lastSlide = $('.slide').last();
-		if (event.deltaY < 0 && $('body').hasClass('lastSlide') && $lastSlide.hasClass('animate')){
-			jumpy();
-		}
-	});
-
-	//jump on arrow key press
-	$('html,body').on('keydown',function(event){
-		var $lastSlide = $('.slide').last();
-		if (event.keyCode === 40 && $('body').hasClass('lastSlide') && $lastSlide.hasClass('animate')){
-			jumpy();
-		}
-	});
-
-	//jump on navigation arrow click
-	$('.nextSlide').on('mouseup touchstart', function(){
-		var $lastSlide = $('.slide').last();
-		if ($('body').hasClass('lastSlide') && $lastSlide.hasClass('animate')) {
-			jumpy();
-		}
-	});
-
-	function jumpy() {
-		window.inAction = 1;
-		var $lastSlide = $('.slide').last();
-		$lastSlide.addClass('jumpy').on('animationend webkitAnimationEnd oAnimationEnd', function () {
-			$lastSlide.removeClass('jumpy');
-			window.inAction = 0;
-		});
-	}
-</script>
-
-<!-- copy styles -->
-<style>
-	.jumpy {
-		-webkit-animation: 0.8s jumpy cubic-bezier(.11,.71,.52,.99);
-		animation: 0.8s jumpy cubic-bezier(.11,.71,.52,.99);
-	}
-	@keyframes jumpy { 50% { -webkit-transform: translateY(-50px); transform: translateY(-50px); }}
-	@-webkit-keyframes jumpy { 50% { -webkit-transform: translateY(-50px); transform: translateY(-50px); }}
-</style>
-
 <!-- Panel top  -->
 
 <nav class="panel top forceMobileView">
@@ -392,7 +345,7 @@
 
             <li class="col-4-12 ae-4">
               <h3 class="small uppercase text-57">GENERAL INQUIRES</h3>
-              <p class="opaque playfair"><a href="mailto:#">gmail@gmail.com</a></p>
+              <p class="opaque playfair"><a href="mailto:#">info@gmail.com</a></p>
 
             <li class="col-4-12 ae-5">
               <h3 class="small uppercase text-57">PARTNERSHIP</h3>

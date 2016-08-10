@@ -1117,10 +1117,8 @@ Scrolling pages
         element = $('.popup[data-popup-id="' + sidebarID + '"]'),
         isAnimated = element.hasClass('animated');
 
-
     if (element.length > 0) {
       $(element).addClass('visible');
-
       if (isAnimated){
         setTimeout(function(){
           $(element).addClass('animate active');
@@ -1132,7 +1130,7 @@ Scrolling pages
         },100);
       }
 
-      $html.toggleClass('popupShown');
+      // $html.toggleClass('popupShown');
       $(element).scrollTop(0);
       window.allowSlide = 0;
       window.popupShown = 1;
