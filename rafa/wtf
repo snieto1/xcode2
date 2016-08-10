@@ -1,1 +1,0 @@
-              <!-- <%= image_tag @club.image_url, alt: "Club Layout Image", class: "shiftImage shiftImageVertical image-73" %> -->
